@@ -1,5 +1,6 @@
 import 'package:ecop_app/main.dart';
 import 'package:ecop_app/models/UserModel.dart';
+import 'package:ecop_app/pages/EncuestaPage.dart';
 import 'package:ecop_app/pages/HomePage.dart';
 import 'package:ecop_app/pages/LoginPage.dart';
 import 'package:ecop_app/pages/admin/HomeAdminPage.dart';
@@ -33,6 +34,9 @@ class _WrapPageState extends State<WrapPage> {
               usuarioProvider.setUserGlobalWithoutNotify(userModel);
 
               if (userModel.rol == "Usuario") {
+                // if (userModel.isNew) {
+                //   return EncuestaPage();
+                // }
                 return HomePage();
               } else {
                 return HomeAdminPage();

@@ -1,4 +1,5 @@
 import 'package:ecop_app/pages/admin/DashPage.dart';
+import 'package:ecop_app/pages/admin/GraficsPage.dart';
 import 'package:ecop_app/providers/AuthProvider.dart';
 import 'package:flutter/material.dart';
 
@@ -30,11 +31,28 @@ class _HomeAdminPageState extends State<HomeAdminPage> {
           },
           currentIndex: _paginaActual,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Todos'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.remove_red_eye), label: 'Animales'),
+                icon: Icon(
+                  Icons.people,
+                  color: Colors.black,
+                ),
+                label: ''),
             BottomNavigationBarItem(
-                icon: Icon(Icons.logout), label: 'Cerrar sesión')
+              icon: Icon(
+                Icons.remove_red_eye,
+                color: Colors.black,
+              ),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.bar_chart_sharp, color: Colors.black),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.logout,
+                  color: Colors.black,
+                ),
+                label: '')
           ]),
     );
   }
@@ -46,6 +64,9 @@ class _HomeAdminPageState extends State<HomeAdminPage> {
       case 1:
         return DashPage();
       case 2:
+        return GraficsPage();
+
+      case 3:
         authProvider.logout();
         return Center(
           child: Column(

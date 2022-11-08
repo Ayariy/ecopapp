@@ -141,20 +141,24 @@ class _RegistroPageState extends State<RegistroPage> {
                             ? null
                             : () async {
                                 if (_formKey.currentState!.validate()) {
-                                  print('valida');
-                                  // UserModel userModel = UserModel(
-                                  //     idUsuario: '',
-                                  //     nombre: _nombreController.text,
-                                  //     apellido: _apellidoController.text,
-                                  //     correo: _correoController.text,
-                                  //     fechaCreacion: DateTime.now(),
-                                  //     fechaUltimavez: DateTime.now(),
-                                  //     rol: "Usuario");
-                                  // User? user = await loginProvider.registerUser(
-                                  //     userModel, _passwordController.text);
-                                  // if (user != null) {
-                                  //   Navigator.pop(context);
-                                  // }
+                                  UserModel userModel = UserModel(
+                                      idUsuario: '',
+                                      nombre: _nombreController.text,
+                                      apellido: _apellidoController.text,
+                                      correo: _correoController.text,
+                                      fechaCreacion: DateTime.now(),
+                                      fechaUltimavez: DateTime.now(),
+                                      rol: "Usuario",
+                                      pais: '',
+                                      ciudad: '',
+                                      edad: 0,
+                                      isNew: true,
+                                      valoracion: 0);
+                                  User? user = await loginProvider.registerUser(
+                                      userModel, _passwordController.text);
+                                  if (user != null) {
+                                    Navigator.pop(context);
+                                  }
                                 }
                               },
                     height: 60,

@@ -42,6 +42,17 @@ class AdminProvider {
     }).toList();
   }
 
+  Future<List<UserModel>> getAllUsuarios() async {
+    QuerySnapshot querySnapshot;
+
+    querySnapshot = await usuariosRef.get();
+
+    return querySnapshot.docs.map((elementUser) {
+      Map<String, dynamic> userMap = elementUser.data() as Map<String, dynamic>;
+      return UserModel.fromFireStore(userMap);
+    }).toList();
+  }
+
   Future<List<UserModel>> getUserByName(String name) async {
     QuerySnapshot querySnapshot = await usuariosRef
         .where('Nombre', isGreaterThanOrEqualTo: name)
@@ -64,7 +75,50 @@ class AdminProvider {
             isLessThanOrEqualTo:
                 DateTime(fin.year, fin.month, fin.day, fin.hour, fin.minute))
         .get();
+    return querySnapshot.docs.map((elementUser) {
+      Map<String, dynamic> userMap = elementUser.data() as Map<String, dynamic>;
+      return UserModel.fromFireStore(userMap);
+    }).toList();
+  }
 
+  Future<List<UserModel>> getUserByPais(String pais) async {
+    QuerySnapshot querySnapshot = await usuariosRef
+        .where('Pais', isGreaterThanOrEqualTo: pais)
+        .where('Pais', isLessThanOrEqualTo: pais + "\uf8ff")
+        .get();
+    return querySnapshot.docs.map((elementUser) {
+      Map<String, dynamic> userMap = elementUser.data() as Map<String, dynamic>;
+      return UserModel.fromFireStore(userMap);
+    }).toList();
+  }
+
+  Future<List<UserModel>> getUserByCiudad(String ciudad) async {
+    QuerySnapshot querySnapshot = await usuariosRef
+        .where('Ciudad', isGreaterThanOrEqualTo: ciudad)
+        .where('Ciudad', isLessThanOrEqualTo: ciudad + "\uf8ff")
+        .get();
+    return querySnapshot.docs.map((elementUser) {
+      Map<String, dynamic> userMap = elementUser.data() as Map<String, dynamic>;
+      return UserModel.fromFireStore(userMap);
+    }).toList();
+  }
+
+  Future<List<UserModel>> getUserByEdad(String edad) async {
+    QuerySnapshot querySnapshot = await usuariosRef
+        .where('Edad', isGreaterThanOrEqualTo: edad)
+        .where('Edad', isLessThanOrEqualTo: edad)
+        .get();
+    return querySnapshot.docs.map((elementUser) {
+      Map<String, dynamic> userMap = elementUser.data() as Map<String, dynamic>;
+      return UserModel.fromFireStore(userMap);
+    }).toList();
+  }
+
+  Future<List<UserModel>> getUserByValoracion(String valoracion) async {
+    QuerySnapshot querySnapshot = await usuariosRef
+        .where('Valoracion', isGreaterThanOrEqualTo: valoracion)
+        .where('Valoracion', isLessThanOrEqualTo: valoracion)
+        .get();
     return querySnapshot.docs.map((elementUser) {
       Map<String, dynamic> userMap = elementUser.data() as Map<String, dynamic>;
       return UserModel.fromFireStore(userMap);

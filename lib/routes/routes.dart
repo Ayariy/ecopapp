@@ -1,9 +1,12 @@
 import 'package:ecop_app/pages/ArPage.dart';
+import 'package:ecop_app/pages/AyudaPage.dart';
+import 'package:ecop_app/pages/EncuestaPage.dart';
 import 'package:ecop_app/pages/HomePage.dart';
 import 'package:ecop_app/pages/MapPage.dart';
 import 'package:ecop_app/pages/OlvidadoPage.dart';
 import 'package:ecop_app/pages/TourPage.dart';
 import 'package:ecop_app/pages/TresDObject.dart';
+import 'package:ecop_app/pages/ValoracionPage.dart';
 import 'package:ecop_app/pages/WrapPage.dart';
 import 'package:ecop_app/pages/admin/HomeAdminPage.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +26,9 @@ Map<String, WidgetBuilder> getAplicationRoutes() {
     'olvidado': (context) => const OlvidadoPage(),
     'modelo3d': (context) => const TresDObject(),
     'map': (context) => const MapPage(),
+    'val': (context) => const ValoracionPage(),
+    'encuesta': (context) => const EncuestaPage(),
+    'ayuda': (context) => const AyudaPage(),
 
     //administrador
     'admin': (context) => const HomeAdminPage(),

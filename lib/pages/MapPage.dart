@@ -6,6 +6,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -70,12 +72,19 @@ class _MapPageState extends State<MapPage> {
           ),
           FloatingActionButton(
               child: Icon(Icons.map),
-              onPressed: () {
+              onPressed: () async {
                 try {
-                  AppCheck.launchApp("com.google.android.apps.maps");
+                  // AppCheck.launchApp("com.google.android.apps.maps");
+                  Uri url = Uri.https('google.com',
+                      '/maps/dir//Ecoparque,+E182/@0.5066761,-77.9881412,8z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x8e296614bfb6df11:0x29ccf67374a20339!3e0');
+
+                  if (await canLaunchUrl(url)) {
+                    await launchUrl(url);
+                  } else {
+                    throw 'Could not launch $url';
+                  }
                 } catch (e) {
-                  getAlert(context, "Alerta",
-                      "No está instalada la Aplicación de Google Maps");
+                  getAlert(context, "Alerta", "No se pudo abrir el enlace");
                 }
                 // com.google.android.apps.maps
               })

@@ -1,7 +1,10 @@
+import 'package:ecop_app/utils/Alerta.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../providers/AuthProvider.dart';
 import '../providers/UserProvider.dart';
@@ -35,6 +38,7 @@ class NavigationDrawer extends StatelessWidget {
               Icons.menu_book_sharp, 'Tour Ecoparque', 'tour', context),
           _getItemTile(Icons.home_work_outlined, 'AR Ecoparque', 'ar', context),
           _getItemTile(Icons.map, '¡Encuéntranos!', 'map', context),
+          _getItemTile(Icons.help, 'Ayuda', 'ayuda', context),
           Divider(
             color:
                 Theme.of(context).appBarTheme.foregroundColor!.withOpacity(0.5),
@@ -55,6 +59,62 @@ class NavigationDrawer extends StatelessWidget {
               // Navigator.pop(context);
             },
           ),
+          Divider(
+              color: Theme.of(context)
+                  .appBarTheme
+                  .foregroundColor!
+                  .withOpacity(0.5)),
+          ListTile(
+            leading: Icon(
+              Icons.facebook,
+              color: Theme.of(context).appBarTheme.foregroundColor,
+            ),
+            title: Text(
+              "Facebook",
+              style: TextStyle(
+                  color: Theme.of(context).appBarTheme.foregroundColor),
+            ),
+            onTap: () async {
+              try {
+                // AppCheck.launchApp("com.google.android.apps.maps");
+                Uri url = Uri.https('facebook.com', '/carchiprefectura');
+
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
+              } catch (e) {
+                getAlert(context, "Alerta", "No se pudo abrir el enlace");
+              }
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              FontAwesomeIcons.instagram,
+              color: Theme.of(context).appBarTheme.foregroundColor,
+            ),
+            title: Text(
+              "Instagram",
+              style: TextStyle(
+                  color: Theme.of(context).appBarTheme.foregroundColor),
+            ),
+            onTap: () async {
+              try {
+                // AppCheck.launchApp("com.google.android.apps.maps");
+                Uri url = Uri.https('instagram.com', '/p/CF481s2JB_q/');
+
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
+              } catch (e) {
+                getAlert(context, "Alerta", "No se pudo abrir el enlace");
+              }
+            },
+          ),
+          _getItemTile(Icons.star, '¡Ayúdanos a mejorar!', 'val', context),
           Divider(
               color: Theme.of(context)
                   .appBarTheme

@@ -168,7 +168,12 @@ class _LoginPageState extends State<LoginPage> {
                                       correo: user.email ?? 'Email desconocido',
                                       fechaCreacion: DateTime.now(),
                                       fechaUltimavez: DateTime.now(),
-                                      rol: "Usuario");
+                                      rol: "Usuario",
+                                      pais: '',
+                                      ciudad: '',
+                                      edad: 0,
+                                      isNew: true,
+                                      valoracion: 0);
 
                                   await usuarioProvider.createUser(userModel);
                                   // usuarioProvider.setUserGlobal(userModel);
