@@ -70,7 +70,11 @@ class _UsersAllPageState extends State<UsersAllPage>
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         if (_textEditingController.text == '') {
-          _agregarMasUsers();
+          if (_fechaFin == '' && _fechaInit == '' && (!isFilter)) {
+            _agregarMasUsers();
+            print('...........................................entro');
+          }
+          //
         }
       }
     });
@@ -117,7 +121,8 @@ class _UsersAllPageState extends State<UsersAllPage>
                                     DateTime fechaCreacion =
                                         listUsers[index].fechaCreacion;
                                     return ListTile(
-                                      leading: const Icon(Icons.date_range),
+                                      leading:
+                                          Text('' + (index + 1).toString()),
                                       title: Text(
                                           '${listUsers[index].nombre}  ${listUsers[index].apellido}'),
                                       subtitle: Column(
@@ -455,7 +460,7 @@ class _UsersAllPageState extends State<UsersAllPage>
                                     _fechaFin = '';
                                     _fechaFinController.text = '';
                                     _fechaInitController.text = '';
-                                    print(_tipoFecha);
+
                                     _getUsersByDate();
                                     Navigator.pop(context);
                                   })

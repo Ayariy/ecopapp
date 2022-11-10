@@ -117,7 +117,8 @@ class AyudaPageState extends State<AyudaPage> {
                   leading: Icon(Icons.camera),
                   title: Text('Botón Escaneo'),
                   subtitle: Text(
-                      'Permite redirigir a la página para escanear los marcadores y poder visualizar las esculturas del ecoparque en realidad Aumentada.'),
+                    'Permite redirigir a la página para escanear los marcadores y poder visualizar las esculturas del ecoparque en realidad Aumentada.',
+                  ),
                 ),
                 ListTile(
                   leading: Image.asset(
@@ -126,7 +127,8 @@ class AyudaPageState extends State<AyudaPage> {
                   ),
                   title: Text('Gif Animado'),
                   subtitle: Text(
-                      'Permite redirigir y visualizar el animal en 3d de cada escultura listada en la página principal.'),
+                    'Permite redirigir y visualizar el animal en 3d de cada escultura listada en la página principal.',
+                  ),
                 ),
               ],
             )

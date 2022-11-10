@@ -634,7 +634,28 @@ class _HomePageState extends State<HomePage> {
                   height: 20,
                 ),
                 Text(
-                    'En el Carchi empieza y termina la Patria Ecuatoriana, puerta de entrada para el Turismo y el Comercio')
+                  'MISIÓN',
+                  style: TextStyle(fontWeight: FontWeight.w800),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                    'Planificar prospectivamente el desarrollo provincial, con participación y apropiación ciudadana de los objetivos y productos estratégicos programados para la transformación, modernización y progreso de la Provincia del Carchi, concebida como una unidad territorial, económica y social, razón por la cual el modelo de gestión pública por resultados del gobierno provincial impulsa la toma de decisiones y acciones con los gobiernos nacional, regionales, cantonales y parroquiales, a fin de concertar y armonizar políticas públicas provinciales que garanticen un desarrollo que reduzca de manera sostenida la desigualdad, la pobreza y la exclusión social, para fortalecer la cohesión social.',
+                    textAlign: TextAlign.justify),
+                SizedBox(
+                  height: 40,
+                ),
+                Text(
+                  'VISIÓN',
+                  style: TextStyle(fontWeight: FontWeight.w800),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                    'Una institución eficiente y organizada, que lidera el desarrollo provincial; dispone de recursos propios, personal permanente capacitado, que asume la descentralización en las áreas estratégicas de interés provincial, contribuyendo así a la seguridad y bienestar de la población de nuestra provincia.',
+                    textAlign: TextAlign.justify)
               ],
             ),
           ),
