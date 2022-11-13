@@ -22,7 +22,7 @@ class _TourPageState extends State<TourPage> {
   String _fileFullPath = '';
 
   final urlApk =
-      "https://firebasestorage.googleapis.com/v0/b/ecoapp-98f4c.appspot.com/o/Ecoparque.apk?alt=media&token=06497311-8fc6-4adb-9143-ef83f1f4ee7c";
+      "https://firebasestorage.googleapis.com/v0/b/ecoapp-98f4c.appspot.com/o/Ecoparque.apk?alt=media&token=a97a0b4e-9413-4956-9365-7acc689bc3ba";
   void _downLoadFile() async {
     final status = await Permission.storage.request();
 
