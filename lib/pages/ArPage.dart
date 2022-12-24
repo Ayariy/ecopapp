@@ -24,7 +24,7 @@ class _ArPageState extends State<ArPage> {
   String _fileFullPath = '';
 
   final urlApk =
-      "https://firebasestorage.googleapis.com/v0/b/ecoapp-98f4c.appspot.com/o/EcopAR.apk?alt=media&token=b3facbed-fbe4-4688-b4d7-12ee5b3d9143";
+      "https://firebasestorage.googleapis.com/v0/b/ecoapp-98f4c.appspot.com/o/EcopAR.apk?alt=media&token=89364986-f49d-41ae-b7ef-1a1a3afa2a28";
 
   void _downLoadFile() async {
     final status = await Permission.storage.request();
